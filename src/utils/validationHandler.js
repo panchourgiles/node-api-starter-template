@@ -1,5 +1,5 @@
-import response from '../network/response';
-import Logger from '../utils/logger';
+import response from '@network/response';
+import Logger from '@utils/logger';
 
 const validationHandler = (schema, property = 'body') => {
   return (req, res, next) => {

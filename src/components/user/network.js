@@ -1,6 +1,6 @@
 import * as userController from './controller';
-import response from '../../network/response';
-import validationHandler from '../../utils/validationHandler';
+import response from '@network/response';
+import validationHandler from '@utils/validationHandler';
 import { createUserSchema, updateUserSchema, getUserSchema } from './schema';
 
 export default (router) => {

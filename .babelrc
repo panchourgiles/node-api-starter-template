@@ -7,5 +7,20 @@
         }
       }
     ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "@components": "./src/components",
+          "@config": "./src/config",
+          "@loaders": "./src/loaders",
+          "@network": "./src/network",
+          "@utils": "./src/utils"
+        }
+      }
+    ]
   ]
 }

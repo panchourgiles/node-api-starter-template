@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import { config } from '../config';
-import Logger from '../utils/logger';
+import { config } from '@config';
+import Logger from '@utils/logger';
 
 export default async () => {
   try {

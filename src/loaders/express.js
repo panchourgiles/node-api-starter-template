@@ -1,11 +1,11 @@
 import { json } from 'express';
-import routes from '../network/routes';
+import routes from '@network/routes';
 import {
   catchNotFound,
   logging,
   clientErrorHandler,
   errorHandler
-} from '../utils/errorHandler';
+} from '@utils/errorHandler';
 
 export default async ({ app }) => {
   app.use(json());

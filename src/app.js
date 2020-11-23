@@ -1,5 +1,5 @@
 import express from 'express';
-import loaders from './loaders';
+import loaders from '@loaders';
 
 export default async () => {
   const app = express();
