@@ -1,4 +1,5 @@
-const response = (res, data, statusCode) => {
+import { Response } from 'express';
+const response = (res: Response, data: any, statusCode: number) => {
   return res.format({
     json: () => {
       res.type('application/json');

@@ -4,6 +4,11 @@ const userIdSchema = Joi.string().regex(/^[0-9a-fA-F]{24}$/);
 const nameSchema = Joi.string().min(3).max(50);
 const emailSchema = Joi.string().email();
 
+export const userSchema = Joi.object({
+  name: nameSchema,
+  email: emailSchema
+});
+
 export const getUserSchema = Joi.object({
   userId: userIdSchema
 });

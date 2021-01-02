@@ -8,7 +8,7 @@ const mongoDBURI = dev
 const port = process.env.PORT || 9000;
 
 export const config = {
-  mongoDBURI,
+  mongoDBURI: mongoDBURI as string,
   dev,
   port
 };
