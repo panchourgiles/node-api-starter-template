@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "allowJs": true,
+    "outDir": "build",
+    "rootDir": "src",
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@config/*": ["config/*"],
+      "@loaders/*": ["loaders/*"],
+      "@network/*": ["network/*"],
+      "@utils/*": ["utils/*"]
+    }
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "src/**/*.test.ts"]
+}
