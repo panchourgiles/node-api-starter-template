@@ -14,7 +14,6 @@
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "no-console": 1,
-    "indent": ["error", 2],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off"
   }
