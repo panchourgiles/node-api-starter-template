@@ -11,7 +11,13 @@ const validationHandler = (schema, property = 'body') => {
       const { details } = error;
       const message = details.map((i) => i.message).join(',');
       Logger.error(message);
-      return response(res, { error: message }, 422);
+      return response(
+        res,
+        {
+          error: message
+        },
+        422
+      );
     }
   };
 };

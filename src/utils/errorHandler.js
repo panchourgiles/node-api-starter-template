@@ -12,12 +12,16 @@ export const logging = (error, req, res, next) => {
 
 export const clientErrorHandler = (error, req, res, next) => {
   if (req.xhr) {
-    res.status(500).send({ error: 'Something failed!' });
+    res.status(500).send({
+      error: 'Something failed!'
+    });
   } else {
     next(error);
   }
 };
 
 export const errorHandler = (error, req, res) => {
-  res.status(500).send({ error: error.message });
+  res.status(500).send({
+    error: error.message
+  });
 };

@@ -1,9 +1,12 @@
-import * as userController from './controller';
 import response from '@network/response';
 import validationHandler from '@utils/validationHandler';
-import { createUserSchema, updateUserSchema, getUserSchema } from './schema';
+import { Router } from 'express';
 
-export default (router) => {
+import * as userController from './controller';
+import { createUserSchema, getUserSchema, updateUserSchema } from './schema';
+
+export default () => {
+  const router = Router();
   router.post('/', validationHandler(createUserSchema), async function (
     req,
     res
@@ -32,7 +35,7 @@ export default (router) => {
     }
   );
 
-  router.get('/', async function (req, res) {
+  router.get('/', async function (_req, res) {
     try {
       const users = await userController.listUsers();
       return response(res, users, 200);
