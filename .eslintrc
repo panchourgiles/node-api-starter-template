@@ -3,19 +3,19 @@
         "es2020": true,
         "node": true
     },
-    "plugins": ["prettier"],
-    "extends": ["eslint:recommended", "prettier"],
+    "plugins": ["simple-import-sort"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended"
+    ],
     "parserOptions": {
         "ecmaVersion": 11,
         "sourceType": "module"
     },
     "rules": {
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
         "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-        "no-console": 1,
-        "prettier/prettier": 2,
-        "indent": [
-            "error",
-            2
-        ]
+        "no-console": ["error", { "allow": ["warn", "error"] }]
     }
 }
