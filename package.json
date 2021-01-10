@@ -7,12 +7,12 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn -r tsconfig-paths/register ./src/index.ts",
+    "dev": "ts-node-dev --respawn -r tsconfig-paths/register src/index.ts",
     "build": "rimraf ./build && tsc",
     "start": "yarn run build && node ./build/index.js",
-    "prettier": "prettier --config .prettierrc --write './**/*.{ts,json}'",
-    "lint": "eslint --ext .ts .",
-    "lint:fix": "yarn run lint --fix"
+    "lint": "eslint --ignore-path .gitignore --ext .ts .",
+    "lint:fix": "yarn run lint --fix",
+    "prettier": " prettier --ignore-path .gitignore --config .prettierrc --write 'src/*.+(ts|json)'"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -55,9 +55,11 @@
     }
   },
   "lint-staged": {
-    "src/*.{ts}": [
-      "prettier --config .prettierrc --write",
-      "eslint --ext .ts ."
+    "src/*.+(ts)": [
+      "yarn run lint"
+    ],
+    "src/*.+(ts|json)": [
+      "yarn run prettier"
     ]
   }
 }
