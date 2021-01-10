@@ -7,9 +7,9 @@
     "dev": "nodemon --exec babel-node src/index.js",
     "build": "rimraf ./build && babel src -d build",
     "start": "yarn run build && node build/index.js",
-    "prettier": "prettier --config .prettierrc --write './**/*.{js,json}'",
-    "lint": "eslint --ext .js src",
-    "lint:fix": "yarn run lint --fix"
+    "lint": "eslint --ignore-path .gitignore --ext .js src",
+    "lint:fix": "yarn run lint --fix",
+    "prettier": " prettier --ignore-path .gitignore --config .prettierrc --write 'src/*.+(js|json)'"
   },
   "keywords": [],
   "author": "",
@@ -44,9 +44,11 @@
     }
   },
   "lint-staged": {
-    "src/*.{js}": [
-      "prettier --config .prettierrc --write",
-      "eslint"
+    "src/*.+(js)": [
+      "yarn run lint"
+    ],
+    "src/*.+(js|json)": [
+      "yarn run prettier"
     ]
   }
 }

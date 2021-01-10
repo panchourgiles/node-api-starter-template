@@ -7,17 +7,18 @@ import { createUserSchema, getUserSchema, updateUserSchema } from './schema';
 
 export default () => {
   const router = Router();
-  router.post('/', validationHandler(createUserSchema), async function (
-    req,
-    res
-  ) {
-    try {
-      const users = await userController.addUser(req.body);
-      return response(res, users, 200);
-    } catch (error) {
-      return response(res, error, 500);
+  router.post(
+    '/',
+    validationHandler(createUserSchema),
+    async function (req, res) {
+      try {
+        const users = await userController.addUser(req.body);
+        return response(res, users, 200);
+      } catch (error) {
+        return response(res, error, 500);
+      }
     }
-  });
+  );
 
   router.put(
     '/:userId',
