@@ -10,7 +10,12 @@ interface UserDocument extends User, Document {}
 const UserSchema = new Schema(
   {
     name: String,
-    email: String
+    email: {
+      type: String,
+      trim: true,
+      required: true,
+      unique: true
+    }
   },
   {
     strict: true,
@@ -21,6 +26,8 @@ const UserSchema = new Schema(
     }
   }
 );
+
+UserSchema.index({ email: 1 }, { unique: true });
 
 const UserModel: Model<UserDocument> = model<UserDocument>('User', UserSchema);
 export default UserModel;
