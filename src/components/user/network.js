@@ -34,7 +34,7 @@ export default () => {
         return response(res, updatedUser, 200);
       } catch (error) {
         Logger.error(error.message);
-        return response(res, error, 500);
+        return response(res, error.message, 500);
       }
     }
   );
@@ -45,7 +45,7 @@ export default () => {
       return response(res, users, 200);
     } catch (error) {
       Logger.error(error.message);
-      return response(res, error, 500);
+      return response(res, error.message, 500);
     }
   });
 
@@ -59,7 +59,7 @@ export default () => {
         return response(res, user, 200);
       } catch (error) {
         Logger.error(error.message);
-        return response(res, error, 500);
+        return response(res, error.message, 500);
       }
     }
   );
