@@ -1,21 +1,27 @@
 import response from '@network/response';
 import Logger from '@utils/logger';
 import { NextFunction, Response } from 'express';
-import { Schema, ValidationError, ValidationErrorItem } from 'joi';
+import { Schema } from 'joi';
 
 const validationHandler = (schema: Schema, property = 'body') => {
-  return (req: { [key: string]: any }, res: Response, next: NextFunction) => {
-    const { error }: { error?: ValidationError } = schema.validate(
-      req[property]
-    );
-    const valid = error == null;
-    if (valid) {
+  return async (
+    req: { [key: string]: any },
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      await schema.validateAsync(req[property]);
       next();
-    } else {
-      const details: ValidationErrorItem[] | undefined = error?.details;
-      const message = details && details.map((i) => i.message).join(',');
+    } catch (error) {
+      const { message } = error;
       Logger.error(message);
-      return response(res, { error: message }, 422);
+      return response(
+        res,
+        {
+          error: message
+        },
+        422
+      );
     }
   };
 };
