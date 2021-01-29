@@ -1,4 +1,5 @@
 import response from '@network/response';
+import Logger from '@utils/logger';
 import validationHandler from '@utils/validationHandler';
 import { Router } from 'express';
 
@@ -15,7 +16,8 @@ export default () => {
         const users = await userController.addUser(req.body);
         return response(res, users, 200);
       } catch (error) {
-        return response(res, error, 500);
+        Logger.error(error.message);
+        return response(res, error.message, 500);
       }
     }
   );
@@ -31,6 +33,7 @@ export default () => {
         const updatedUser = await userController.updateUser(userId, user);
         return response(res, updatedUser, 200);
       } catch (error) {
+        Logger.error(error.message);
         return response(res, error, 500);
       }
     }
@@ -41,6 +44,7 @@ export default () => {
       const users = await userController.listUsers();
       return response(res, users, 200);
     } catch (error) {
+      Logger.error(error.message);
       return response(res, error, 500);
     }
   });
@@ -54,6 +58,7 @@ export default () => {
         const user = await userController.getUser(userId);
         return response(res, user, 200);
       } catch (error) {
+        Logger.error(error.message);
         return response(res, error, 500);
       }
     }
