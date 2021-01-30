@@ -6,7 +6,8 @@ export default async () => {
   try {
     await mongoose.connect(config.mongoDBURI, {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useCreateIndex: true
     });
     Logger.info('Connected succesfully to mongo');
   } catch (error) {
