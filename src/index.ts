@@ -1,5 +1,3 @@
-import 'module-alias/register';
-
 import { config } from '@config/index';
 import Logger from '@utils/logger';
 

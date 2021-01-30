@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn -r tsconfig-paths/register src/index.ts",
     "build": "rimraf ./build && tsc",
-    "start": "yarn run build && node ./build/index.js",
+    "start": "yarn run build && node -r module-alias/register ./build/index.js",
     "lint": "eslint --ignore-path .gitignore --ext .ts .",
     "lint:fix": "yarn run lint --fix",
     "prettier": " prettier --ignore-path .gitignore --config .prettierrc --write 'src/*.+(ts|json)'"
