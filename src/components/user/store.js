@@ -23,9 +23,15 @@ function listUsers() {
   return users;
 }
 
+function deleteUser(id) {
+  const user = UserModel.deleteOne({ _id: id });
+  return user;
+}
+
 export default {
   add: addUser,
   update: updateUser,
   get: getUser,
-  list: listUsers
+  list: listUsers,
+  delete: deleteUser
 };

@@ -15,3 +15,7 @@ export const getUser = async (userId) => {
 export const listUsers = async () => {
   return store.list();
 };
+
+export const deleteUser = async (userId) => {
+  return store.delete(userId);
+};
