@@ -14,11 +14,13 @@
       {
         "root": ["."],
         "alias": {
+          "@": "./src",
           "@components": "./src/components",
           "@config": "./src/config",
           "@loaders": "./src/loaders",
           "@network": "./src/network",
-          "@utils": "./src/utils"
+          "@utils": "./src/utils",
+          "@test": "./test"
         }
       }
     ]
