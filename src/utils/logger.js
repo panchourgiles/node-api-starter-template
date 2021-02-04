@@ -9,7 +9,8 @@ if (process.env.NODE_ENV === 'production') {
       format: winston.format.combine(
         winston.format.cli(),
         winston.format.splat()
-      )
+      ),
+      silent: process.env.NODE_ENV === 'test' ? true : false
     })
   );
 }
