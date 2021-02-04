@@ -32,7 +32,7 @@ export default () => {
         const { body: user } = req;
         const updatedUser = await userController.updateUser(userId, user);
         if (!updatedUser) {
-          return response.status(404).send();
+          return response(res, updatedUser, 404);
         }
         return response(res, updatedUser, 200);
       } catch (error) {
