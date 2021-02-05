@@ -1,4 +1,5 @@
 process.env.NODE_ENV = 'test';
+import UserModel from '@components/user/model';
 import { request, startApp } from '@test/utils/common';
 import { closeDatabase, connectDatabase } from '@test/utils/db';
 
@@ -87,5 +88,13 @@ describe('User routes', () => {
   it('Should return with HTTP 500 status because the route does not exist', async () => {
     const res = await request(app).get('/ROUTE_NOT_EXISTING');
     expect(res.status).toBe(500);
+  });
+
+  it('Should return with HTTP 500 status because the findOne method of mongoose fails', async () => {
+    jest
+      .spyOn(UserModel, 'findOne')
+      .mockImplementationOnce(() => Promise.reject('fail'));
+    const userResult = await request(app).get(`/users/${mockUser._id}`);
+    expect(userResult.status).toBe(500);
   });
 });
