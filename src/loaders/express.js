@@ -5,10 +5,14 @@ import {
   errorHandler,
   logging
 } from '@utils/errorHandler';
+import cors from 'cors';
 import { json } from 'express';
 
 export default async ({ app }) => {
   app.use(json());
+
+  //Cors
+  app.use(cors());
 
   //Routes
   app.use('/', routes());
